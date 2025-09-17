@@ -1,0 +1,56 @@
+/* Theme tokens */
+:root {
+--bg:#0f172a;
+--panel:#111827;
+--card:#1f2433;
+--txt:#e5e7eb;
+--mut:#94a3b8;
+--acc:#22d3ee;
+--br:12px;
+--bd:1px solid rgba(148,163,184,.18);
+--shadow:0 8px 22px rgba(0,0,0,.35)
+}
+
+/* Base */
+* { box-sizing:border-box }
+html,body { height:100% }
+body {
+margin:0;
+font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+background:linear-gradient(180deg,#0b1220,var(--bg));
+color:var(--txt)
+}
+.container { max-width:960px; margin:0 auto; padding:0 16px }
+
+/* Header */
+.app-header { position:sticky; top:0; backdrop-filter:blur(8px); background:rgba(17,24,39,.6); border-bottom:var(--bd); z-index:10 }
+.app-header h1 { margin:0; padding:18px 0; font-size:22px; font-weight:700 }
+
+/* Composer */
+.note-input { margin-top:20px; background:var(--panel); border:var(--bd); border-radius:var(--br); padding:14px; box-shadow:var(--shadow) }
+.note-input textarea { width:100%; min-height:90px; resize:vertical; background:var(--card); color:var(--txt); border:var(--bd); border-radius:10px; padding:12px 14px; outline:none }
+.note-input textarea::placeholder { color:var(--mut) }
+#addNoteBtn { margin-top:10px; display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid rgba(34,211,238,.4); background:linear-gradient(180deg,var(--acc),#06b6d4); color:#003242; font-weight:700; cursor:pointer; transition:.15s }
+#addNoteBtn:hover { filter:brightness(1.05) }
+#addNoteBtn:active { transform:translateY(1px) scale(.99) }
+
+/* Notes grid */
+.notes-section { margin:18px 0 64px }
+.notes-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px }
+.note-card { background:var(--card); border:var(--bd); border-radius:var(--br); padding:12px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:8px; white-space:pre-wrap }
+.note-text { line-height:1.5 }
+.note-actions { display:flex; align-items:center; gap:8px }
+.note-date { color:var(--mut); font-size:12px }
+.delete-btn { margin-left:auto; background:transparent; color:#fecaca; border:1px solid rgba(239,68,68,.3); border-radius:10px; padding:6px 10px; cursor:pointer }
+.delete-btn:hover { background:rgba(239,68,68,.08) }
+
+/* Footer */
+.app-footer { opacity:.75; border-top:var(--bd) }
+.app-footer p { margin:14px 0; font-size:13px; color:var(--mut) }
+
+/* A11y */
+.visually-hidden { position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap }
+
+/* Responsive */
+@media (max-width:520px) { .app-header h1 { font-size:19px } }
+
